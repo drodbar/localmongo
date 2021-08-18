@@ -24,16 +24,26 @@ services:
       - 27017
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+  mongo4:
+    hostname: mongo4
+    container_name: localmongo4
+    image: mongo:3.6-jessie
+    expose:
+      - 27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
   mongosetup:
     image: mongo:3.6-jessie
     links:
       - mongo1:mongo1
       - mongo2:mongo2
       - mongo3:mongo3
+      - mongo4:mongo4
     depends_on:
       - mongo1
       - mongo2
       - mongo3
+      - mongo4
     volumes:
       - .:/scripts
     restart: "no"

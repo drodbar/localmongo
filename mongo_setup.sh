@@ -10,17 +10,23 @@ mongo --host mongo1:27017 <<EOF
       {
         "_id": 0,
         "host": "mongo1:27017",
-        "priority": 2
+        "priority": 3
       },
       {
         "_id": 1,
         "host": "mongo2:27017",
-        "priority": 0
+        "priority": 2
       },
       {
         "_id": 2,
         "host": "mongo3:27017",
-        "priority": 0
+        "priority": 1
+      },
+      {
+        "_id": 3,
+        "host": "mongo4:27017",
+        "priority": 0,
+        "hidden": true
       }
     ]
   };
